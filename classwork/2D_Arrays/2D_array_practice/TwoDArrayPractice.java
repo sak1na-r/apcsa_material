@@ -9,9 +9,9 @@ public class TwoDArrayPractice
       System.out.println("Before rowSwap: ");
       print2dA(arr1);
 
-      rowSwap(arr1, 0, 2)
+      rowSwap(arr1, 0, 2);
 
-      System.out.println("After rowSwap: ")
+      System.out.println("After rowSwap: ");
       print2dA(arr1);
 
       
@@ -21,29 +21,32 @@ public class TwoDArrayPractice
       System.out.println("Before colSwap: ");
       print2dA(arr2);
       
-      colSwap(arr2, 0, 2)
+      colSwap(arr2, 0, 2);
 
-      System.out.println("After colSwap: ")
+      System.out.println("After colSwap: ");
       print2dA(arr2);
 
 
       //fillRows
       int[][] arr3 = {{1,2,3}, {4,5,6}, {7,8,9}};      
-      
+      int rows = arr3.length;
+      int cols = arr3[0].length;
+
+
       System.out.println("Before fillRows: ");
       print2dA(arr3);
 
-      fillRows("hello", 3, 4)
+      String[][] fill = fillRows("HELLO", rows, cols);
 
-      System.out.println("After fillRows: ")
-      print2dA(arr3);
+      System.out.println("After fillRows: ");
+      print2dA(fill);
 
     }
 
   public static void print2dA(int[][] array){
       for (int r = 0; r < array.length; r++) {
         for (int c = 0; c < array[r].length; c++) {
-          System.out.println(array[r][c] );
+          System.out.println(array[r][c] + " ");
         }
         System.out.println();
       }
@@ -52,7 +55,7 @@ public class TwoDArrayPractice
   public static void print2dA(String[][] array){
       for (int r = 0; r < array.length; r++) {
         for (int c = 0; c < array[r].length; c++) {
-          System.out.println(array[r][c] );
+          System.out.println(array[r][c] + " ");
         }
         System.out.println();
       }
@@ -80,11 +83,11 @@ public class TwoDArrayPractice
       for (int r = 0; r < rows; r++) {
         for (int c = 0; c < cols; c++) {
           if (ind < str.length()) {
-            result[r][c] = str.subtring(ind, ind+1);
-            ind++
+            result[r][c] = str.substring(ind, ind+1);
+            ind++;
           }
           else {
-            result[r][c] = null;
+            result[r][c] = "null";
           }
         }
       }
