@@ -3,60 +3,92 @@ public class TwoDArrayPractice
 
   public static void main(String[] args)
     {
-      // Create test cases here.
+      //rowSwap
+      int[][] arr1 = {{1,2,3}, {4,5,6}, {7,8,9}};      
       
-      // Print the status of your 2D array before and after
-      // invoking a method. You will need to add a print() method
-      // to avoid duplicated code in your main.
+      System.out.println("Before rowSwap: ");
+      print2dA(arr1);
+
+      rowSwap(arr1, 0, 2)
+
+      System.out.println("After rowSwap: ")
+      print2dA(arr1);
+
+      
+      //colSwap
+      int[][] arr2 = {{1,2,3}, {4,5,6}, {7,8,9}};      
+      
+      System.out.println("Before colSwap: ");
+      print2dA(arr2);
+      
+      colSwap(arr2, 0, 2)
+
+      System.out.println("After colSwap: ")
+      print2dA(arr2);
+
+
+      //fillRows
+      int[][] arr3 = {{1,2,3}, {4,5,6}, {7,8,9}};      
+      
+      System.out.println("Before fillRows: ");
+      print2dA(arr3);
+
+      fillRows("hello", 3, 4)
+
+      System.out.println("After fillRows: ")
+      print2dA(arr3);
+
     }
 
-  
-    /*
-     * Swaps all values in the specified 2 rows of array.
-    */
-  public static void rowSwap(int[][] array, int rowAIndex, int rowBIndex)
-    {
-        // Yor code here
+  public static void print2dA(int[][] array){
+      for (int r = 0; r < array.length; r++) {
+        for (int c = 0; c < array[r].length; c++) {
+          System.out.println(array[r][c] );
+        }
+        System.out.println();
+      }
     }
 
-  
-    /**
-     * Swaps all values in the specified 2 columns of array.
-     */
-    public static void colSwap(int[][] array, int colAIndex, int colBIndex)
-    {
-        // Your code her
+  public static void print2dA(String[][] array){
+      for (int r = 0; r < array.length; r++) {
+        for (int c = 0; c < array[r].length; c++) {
+          System.out.println(array[r][c] );
+        }
+        System.out.println();
+      }
     }
 
-  
-    /*
-     * Returns an array with the specified number of rows and columns
-     * containing the characters from str in row-major order. If str.length()
-     * is greater than rows * cols, extra characters are ignored. If
-     * str.length() is less than rows * cols, the remaining elements in the
-     * returned array contain null.
+  public static void rowSwap(int[][] array, int rowAIndex, int rowBIndex){
+      int[] nums = array[rowAIndex];
+      array[rowAIndex] = array[rowBIndex];
+      array[rowBIndex] = nums;
+    }
 
-     Examples:
+    public static void colSwap(int[][] array, int colAIndex, int colBIndex){
+      for (int i = 0; i < array.length; i++) {
+        int value = array[i][colAIndex];
+        array[i][colAIndex] = array[i][colBIndex];
+        array[i][colBIndex] = value;
+      }
+    }
 
-      String[][] result = fillRows("Happy Halloween", 3, 4);
-      
-      result (after method call):
-      "H"     "a"     "p"     "p"
-      "y"     " "     "H"     "a"
-      "l"     "l"     "o"     "w"
-      
-      
-      String[][] result = fillRows("hello", 3, 4);
-      
-      result (after method call):
-      "h"     "e"     "l"     "l"
-      "o"     null    null    null
-      null    null    null    null
-
-     */
     public static String[][] fillRows(String str, int rows, int cols)
-    {
-        return null; // replace this with your 2D array
+    {   
+      String[][] result = new String[rows][cols];
+      int ind = 0;
+
+      for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+          if (ind < str.length()) {
+            result[r][c] = str.subtring(ind, ind+1);
+            ind++
+          }
+          else {
+            result[r][c] = null;
+          }
+        }
+      }
+        return result;
     }
-  
+
 }    
